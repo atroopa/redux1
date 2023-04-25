@@ -1,0 +1,13 @@
+{
+  "name": "redux1",
+  "version": "0.1",
+  "description": "for test",
+  "main": "index.js",
+  "repository": "-",
+  "author": "omid hajavi",
+  "license": "MIT",
+  "private": null,
+  "dependencies": {
+    "redux": "^4.2.1"
+  }
+}
