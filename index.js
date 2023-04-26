@@ -1,5 +1,6 @@
 const redux = require("redux");
 const createStore = redux.createStore;
+const combineReducer = redux.combineReducers;
 
 const BUY_MOB    = 'BUY_MOB';
 const BUY_TABLET = 'BUY_TABLET';
