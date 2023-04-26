@@ -23,11 +23,40 @@ const initialState = {
     numOfTablet: 50
 };
 
+const initialMobState = {
+    numOfMobs: 100,
+};
+
+const initialTabState = {
+    numOfTab: 50
+};
+
 const reducer = (state=initialState , action) => {
     switch (action.type) {
         case BUY_MOB:
             return { ... state , numOfMobs: state.numOfMobs-1 };
     
+        case BUY_TABLET:
+            return {... state , numOfTablet: state.numOfTablet -1};
+
+        default:
+             return state;
+    }
+};
+
+const MobReducer = (state=initialMobState , action) => {
+    switch (action.type) {
+        case BUY_MOB:
+            return { ... state , numOfMobs: state.numOfMobs-1 };
+    
+        default:
+             return state;
+    }
+};
+
+
+const TabReducer = (state=initialTabState , action) => {
+    switch (action.type) {   
         case BUY_TABLET:
             return {... state , numOfTablet: state.numOfTablet -1};
 
