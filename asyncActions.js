@@ -1,4 +1,8 @@
-
+const redux           = require("redux");
+const createStore     = redux.createStore;
+const applyMiddleWare = redux.applyMiddleware;
+const thunkMiddleWare = require("redux-thunk").default
+const axios           = require("axios");
 
 const initialState = {
     loading: false,
@@ -35,6 +39,7 @@ const fecth_users_failure = error => {
 ////////////////// Reducers  //////////////////////////////////////////
 
 const reducer = (state=initialState, action) => {
+
     switch (action.type) {
         case FETCH_USERS_REQUEST:
             return {
@@ -61,3 +66,13 @@ const reducer = (state=initialState, action) => {
     }
 }
 
+const fetchUsers = () => (dispatch) => {
+    axios.get("https://fakerestapi.azurewebsites.net/api/v1/Users")
+        .then( response => {
+
+        }).catch(error => {
+            
+        });
+}
+
+const store = createStore(reducer, applyMiddleWare(thunkMiddleWare));   
