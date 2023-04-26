@@ -2,13 +2,29 @@
 
 const initialState = {
     loading: false,
-    users:[],
-    error: ''
+    users:   [],
+    error:   ''
 };
 
-const FETCH_USERS_REQUEST = "FETCH_USERS_REQUEST";
-const FETCH_DATA_SUCCESS  = "FETCH_DATA_SUCCESS" ;
-const FETCH_DATA_FAILURE  = "FETCH_DATA_FAILURE" ;
+const FETCH_USERS_REQUEST = "FETCH_USERS_REQUEST" ;
+const FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS" ;
+const FETCH_USERS_FAILURE = "FETCH_USERS_FAILURE" ;
 
 
+const fetch_users_request = () => {
+    return {
+        type: FETCH_USERS_REQUEST
+    }
+}
 
+const fetch_users_success = () => {
+    return {
+        type: FETCH_USERS_SUCCESS
+    }
+}
+
+const fecth_users_failure = () => {
+    return {
+        type: FETCH_USERS_FAILURE
+    }
+}
