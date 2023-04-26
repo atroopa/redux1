@@ -15,9 +15,9 @@ const initialState = {
 const reducer = (state=initialState , action) => {
     switch (action.type) {
         case BUY_MOB:
-            return state.numOfMobs ++;
+            return { ... numOfMobs, numOfMobs: state.numOfMobs ++ };
     
         default:
-            state;
+             return state;
     }
 };
