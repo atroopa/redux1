@@ -1,3 +1,6 @@
+const redux = require('redux');
+const createStore = redux.createStore();
+
 const BUY_MOB = 'BUY_MOB';
 
 
@@ -15,9 +18,13 @@ const initialState = {
 const reducer = (state=initialState , action) => {
     switch (action.type) {
         case BUY_MOB:
-            return { ... numOfMobs, numOfMobs: state.numOfMobs ++ };
+            return { ... state, numOfMobs: state.numOfMobs-- };
     
         default:
              return state;
     }
 };
+
+
+const store = createStore(reducer);
+
