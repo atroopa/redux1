@@ -19,31 +19,31 @@ const buyTablet = () => {
     }
 };
 
-const initialState = {
-    numOfMobs: 100,
-    numOfTablet: 50
-};
+// const initialState = {
+//     numOfMobs: 100,
+//     numOfTablet: 50
+// };
 
 const initialMobState = {
     numOfMobs: 100,
 };
 
 const initialTabState = {
-    numOfTab: 50
+    numOfTablet: 50
 };
 
-const reducer = (state=initialState , action) => {
-    switch (action.type) {
-        case BUY_MOB:
-            return { ... state , numOfMobs: state.numOfMobs-1 };
+// const reducer = (state=initialState , action) => {
+//     switch (action.type) {
+//         case BUY_MOB:
+//             return { ... state , numOfMobs: state.numOfMobs-1 };
     
-        case BUY_TABLET:
-            return {... state , numOfTablet: state.numOfTablet -1};
+//         case BUY_TABLET:
+//             return {... state , numOfTablet: state.numOfTablet -1};
 
-        default:
-             return state;
-    }
-};
+//         default:
+//              return state;
+//     }
+// };
 
 const MobReducer = (state=initialMobState , action) => {
     switch (action.type) {
@@ -67,7 +67,12 @@ const TabReducer = (state=initialTabState , action) => {
 };
 
 
-const store = createStore(reducer);
+const rootReducer = combineReducer({
+    mob: MobReducer,
+    tab: TabReducer
+});
+
+const store = createStore(rootReducer);
 console.log("initial State is ", store.getState());
 
 const unsubscribe =  store.subscribe(() => console.log("updated state is ", store.getState()));
