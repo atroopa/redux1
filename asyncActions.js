@@ -68,11 +68,15 @@ const reducer = (state=initialState, action) => {
 
 const fetchUsers = () => (dispatch) => {
     axios.get("https://fakerestapi.azurewebsites.net/api/v1/Users")
-        .then( response => {
-
-        }).catch(error => {
-            
+        
+    .then( response => {
+            const users = response.map(user => user.id);
+            dispatch(fetch_users_success(users));
+        })
+    .catch(error => {
+            dispatch(fecth_users_failure(error.message));
         });
 }
 
-const store = createStore(reducer, applyMiddleWare(thunkMiddleWare));   
+const store = createStore(reducer, applyMiddleWare(thunkMiddleWare));
+store.subscribe(() =>{ console.log(store.getState()) });
