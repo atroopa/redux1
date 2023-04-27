@@ -70,7 +70,7 @@ const fetchUsers = () => (dispatch) => {
     axios.get("https://fakerestapi.azurewebsites.net/api/v1/Users")
         
     .then( response => {
-            const users = response.map(user => user.id);
+            const users = response.data.map(user => user.id);
             dispatch(fetch_users_success(users));
         })
     .catch(error => {
@@ -80,3 +80,5 @@ const fetchUsers = () => (dispatch) => {
 
 const store = createStore(reducer, applyMiddleWare(thunkMiddleWare));
 store.subscribe(() =>{ console.log(store.getState()) });
+
+store.dispatch(fetchUsers());
